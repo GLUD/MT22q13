@@ -70,6 +70,7 @@ class UserTbl {
         if(!$this->isReport){
             $this->DeleteCol();
             $this->ModifyCol();
+            $this->ModifyPermissionsCol();
         }
 
         $this->tbl->filasLimitePaginacion = 6;
@@ -144,7 +145,13 @@ class UserTbl {
         $col->adiTitulo("Modificar");
         $this->tbl->adiColumna($col);
     }
-
+    
+    private function ModifyPermissionsCol() {
+        $col = new PTablaColumna2();
+        $col->adiTdPropiedad("style", "width:30px;text-align:center;");
+        $col->adiTitulo("Permisos");
+        $this->tbl->adiColumna($col);
+    }    
      /**
      * @param int $filaNumero
      * @param string $ordens
@@ -178,6 +185,9 @@ class UserTbl {
                             <span class=\"glyphicon glyphicon-minus-sign\"></span>
                            </button>";
                 $fila[] = "<button data-toggle=\"tooltip\" title=\"Modificar\" onclick=\"UpdateData($id);\" class=\"btn btn-warning\" type=\"button\" name=\"boton\" id=\"crearBtn\">
+                            <span class=\"glyphicon glyphicon-edit\"></span>
+                           </button>";
+                $fila[] = "<button data-toggle=\"tooltip\" title=\"Modificar Permisos\" onclick=\"RedirectToPermissionsUser($id);\" class=\"btn btn-warning\" type=\"button\" name=\"boton\" id=\"crearBtn\">
                             <span class=\"glyphicon glyphicon-edit\"></span>
                            </button>";
             }
