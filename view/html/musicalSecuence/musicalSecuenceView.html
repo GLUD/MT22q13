@@ -1,0 +1,47 @@
+<div class="col-xs-12 col-sm-3 col-md-3" style="padding-left:5px; padding-right:5px;"> <br>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Secuencia Musical:</h3>
+    </div>
+    <div class="panel-body">
+      <div style="text-align: center; font-size: 4em;">
+        <span class="glyphicon glyphicon-user"></span>
+      </div>
+      <p>
+        <button type="button" class="btn btn-lg btn-default">DO</button>
+        <button type="button" class="btn btn-lg btn-primary">RE</button>
+        <button type="button" class="btn btn-lg btn-success">MI</button>
+        <button type="button" class="btn btn-lg btn-info">FA</button>
+        <button type="button" class="btn btn-lg btn-warning">SOL</button>
+        <button type="button" class="btn btn-lg btn-danger">LA</button>
+        <button type="button" class="btn btn-lg btn-default">SI</button>
+      </p>
+  </div>
+</div>
+
+<script>
+
+
+$(document).ready(function() {
+    var audioElement = document.createElement('audio');
+    audioElement.setAttribute('src', 'audioNoteDo.mp3');
+    audioElement.setAttribute('autoplay', 'autoplay');
+    //audioElement.load()
+
+    $.get();
+
+    audioElement.addEventListener("load", function() {
+        audioElement.play();
+    }, true);
+
+    $('.play').click(function() {
+        audioElement.play();
+    });
+
+    $('.pause').click(function() {
+        audioElement.pause();
+    });
+});
+
+</script>
+{jquery}

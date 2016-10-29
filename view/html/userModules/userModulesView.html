@@ -1,0 +1,51 @@
+<div class="col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6" style="padding-left:5px; padding-right:5px;"> <br>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Permisos de Usuario:</h3>
+      </div>
+      <div class="panel-body">
+        <div style="text-align: center; font-size: 6em;">
+          <span class="glyphicon glyphicon-user"></span>
+        </div>
+        <div class="form-group" align="center">
+            <label><h3>Nombre Usuario:</h3></label>
+        </div>
+        <div class="form-group" align="center">
+            <h4>{fullName}</h4>
+        </div>
+        <div class="form-group" align="center">
+            <label><h3>Numero de Documento:</h3></label>
+        </div>
+        <div class="form-group" align="center">
+            <h4>{document}</h4>
+        </div>
+        {modules}
+        {htmlControls}
+      </div>
+     </div>
+  </div>
+
+<script>
+    function formValidacionUpdate() {
+        var validacion = true;
+            validacion = validarCampoTexto("optionInputForm", "optionInputFormError", "texto", false, validacion) && validacion;
+            validacion = validarCampoTexto("idDataInputForm", "idDataInputFormError", "texto", false, validacion) && validacion;
+            validacion = validarCampoTexto("projectNameCtx", "projectNameCtxError", "texto", true, validacion) && validacion;
+            validacion = validarAreaTexto("projectDescriptionAtx", "projectDescriptionAtxError", true, validacion) && validacion;
+            validacion = validarLista("projectCompanyLst", "projectCompanyLstError", true, "", validacion) && validacion;
+            return validacion;
+    }
+    function updateFormSubmit(boton) {
+        if (formValidacionUpdate()) {
+            boton.disabled = 'disabled';
+            boton.onclick = '';
+            document.form.submit();
+        }
+    }
+
+
+
+</script>
+
+
+{jquery}

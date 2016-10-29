@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>log-in</title>
+
+<link href="../../view/css/ui-lightness/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+<link href="../../view/css/tooltips/tooltipster.css" rel="stylesheet" type="text/css"/>
+<link href="../../view/css/paginators/smartpaginator.css" rel="stylesheet" type="text/css"/>
+
+
+<link rel="stylesheet" href="../../view/css/bootstrap.min.css">
+<link rel="stylesheet" href="../../view/css/style.css">
+
+
+<script src="../../view/js/jquery-1.10.2.js"></script>
+<script src="../../view/js/jquery-ui-1.10.4.custom.js"></script>
+<script language="javascript" src="../../view/js/Validaciones.js"></script>
+<script lenguage="javascript" src="../../view/js/jquery.tooltipster.js"></script>
+<script lenguage="javascript" src="../../view/js/jquery.smartpaginator.js"></script>
+<script lenguage="javascript" src="../../view/js/jquery.bpopup.min.js"></script>
+<script lenguage="javascript" src="../../view/js/jquery.bpopup.min.js"></script>
+<script lenguage="javascript" src="../../view/js/bootstrap.min.js"></script>
+<script language="javascript" src="../../view/js/UtilesJquery.js"></script>
+
+<script>
+/*	$(document).ready(function() {
+		$('.tooltip').tooltipster();
+	});*/
+</script>
+{jquery}
+</head>
+
+<body class="bagroundLogin">
+<div id="Div-Login">
+<img src="../../view/imgs/logoScrumMiniLoguin.png" width="290" height="60" style="margin-bottom:10px;">
+{form}
+<table width="200" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td style="height:50px; vertical-align:middle;">
+    <div class="form-group input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      {nickNameCtx}
+    </div>
+    </td><td style="height:50px; vertical-align:middle;">{nickNameCtxError}</td>
+  </tr>
+  <tr>
+    <td style="height:50px; vertical-align:middle;">
+    <div class="form-group input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+      {passwordCtx}
+    </div>
+    </td><td style="height:50px; vertical-align:middle;"><span>{passwordCtxError}</span></td>
+  </tr>
+  <tr>
+    <td><input class="btn btn-primary" name="" type="submit" value="Sign in" onClick="formSubmit(this)" style="margin-top:10px;"></td>
+  </tr>
+</table>
+{formCierre}
+<div style="display:none" class="alerta" id="mensajeErrorLogueo">Por favor  verifique su usuario y contraseña!</div>
+</div>
+</body>
+</html>

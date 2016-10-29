@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<title>MT22q13</title>
+
+<link href="../../view/css/jquery-ui/jquery-ui.css" rel="stylesheet">
+<link href="../../view/css/paginators/smartpaginator.css" rel="stylesheet" type="text/css"/>
+
+<link rel="stylesheet" href="../../view/css/bootstrap.min.css">
+
+<!--<link rel="stylesheet" href="../../view/css/bootstrap-switch.min.css">-->
+<link rel="stylesheet" href="../../view/css/style.css">
+<link rel="stylesheet" href="../../view/css/bootstrap2-toggle.css">
+
+<script src="../../view/js/jquery.js"></script>
+<script src="../../view/js/jquery-ui.js"></script>
+<script language="javascript" src="../../view/js/Validaciones.js"></script>
+<script language="javascript" src="../../view/js/jquery.smartpaginator.js"></script>
+<script language="javascript" src="../../view/js/jquery.bpopup.min.js"></script>
+<script language="javascript" src="../../view/js/bootstrap.min.js"></script>
+<script language="javascript" src="../../view/js/bootstrap2-toggle.js"></script>
+<!--<script language="javascript" src="../../view/js/bootstrap-switch.min.js"></script>-->
+<script language="javascript" src="../../view/js/UtilesJquery.js"></script>
+
+</head>
+<body>
+
+	<div id="generalMenu" class="container-fluid">
+		{generalMenu}
+    </div>
+
+    <div class="container-fluid">
+      <section class="main row">
+    	{content}
+      </section>
+    </div>
+
+<!--
+
+	<p id="scrollToTop">
+	    <a href="#top" class="blue button small tooltip tooltipstered">
+        	<img width="30" height="30" src="../../view/imgs/up-arrow.png">
+        </a>
+	</p>
+
+    <span id="top-link-block" class="hidden">
+        <a href="#top" class="well well-sm" onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+            <i class="glyphicon glyphicon-chevron-up"></i> Back to Top
+        </a>
+    </span> -->
+
+  <!--  <div class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+      <div class="container">
+        <p class="footer-block" align="center">
+          <a href="http://www.gekkoins.com/" target="_blank" class="linkFooter"> Gekko I.N.S © todos los derechos reservados 2015</a>
+        </p>
+      </div>
+    </div> -->
+</body>
+</html>
+
+<script>
+	(function($){
+		$('[data-toggle="tooltip"]').tooltip();
+	})(jQuery);
+
+
+	// hide #back-top first
+	//$("#scrollToTop").hide();
+
+	/*if ( ($(window).height() + 100) < $(document).height() ) {
+		$('#top-link-block').removeClass('hidden').affix({
+			// how far to scroll down before link "slides" into view
+			offset: {top:100}
+		});
+	}*/
+
+</script>

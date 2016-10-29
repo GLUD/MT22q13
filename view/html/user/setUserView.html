@@ -1,0 +1,95 @@
+<div class="col-xs-12 col-sm-3 col-md-3" style="padding-left:5px; padding-right:5px;"> <br>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Registrar Usuario:</h3>
+    </div>
+    <div class="panel-body">
+      <div style="text-align: center; font-size: 4em;">
+        <span class="glyphicon glyphicon-user"></span>
+      </div>
+       {form}
+      {optionInputForm}{optionInputFormError}
+      {idDataInputForm}{idDataInputFormError}
+      <div class="form-group">
+        <label>Nombres:</label>
+        {userNamesCtx}<span>{userNamesCtxError}</span> </div>
+      <div class="form-group">
+        <label>Apellidos:</label>
+        {userLastNamesCtx}<span>{userLastNamesCtxError}</span> </div>
+      <div class="form-group">
+        <label>Tipo Documento:</label>
+        {userDocumentTypeLst}<span>{userDocumentTypeLstError}</span> </div>
+      <div class="form-group">
+        <label>Numero Documento:</label>
+        {userDocumentNumberCtx}<span>{userDocumentNumberCtxError}</span> </div>
+      <div class="form-group">
+        <label>Numero Celular:</label>
+        {userCellNumberCtx}<span>{userCellNumberCtxError}</span> </div>
+      <div class="form-group">
+        <label>Numero de Telefono:</label>
+        {userTelePhoneNumberCtx}<span>{userTelePhoneNumberCtxError}</span> </div>
+      <div class="form-group">
+        <label>Email:</label>
+        {userEmailCtx}<span>{userEmailCtxError}</span> </div>
+      <div class="form-group">
+        <label>Tipo de usuario:</label>
+        {userRolLst}<span>{userRolLstError}</span> </div>
+      <div class="form-actions">
+        <input id="registrarBtn" name="registrarBtn" class="btn btn-primary" type="button" value="Registrar" onClick="SetValueToInputText('optionInputForm',1); formSubmit(this)">
+        <input id="modificarBtn" name="modificarBtn" class="btn btn-warning" type="button" value="Modificar" style="display:none;" onClick="SetValueToInputText('optionInputForm',4); updateFormSubmit(this)">
+      </div>
+      {formCierre} </div>
+  </div>
+</div>
+
+<div class="col-xs-12 col-sm-9 col-md-9" style="padding-left:5px; padding-right:5px;"> <br>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Filtrar Usuarios:</h3>
+    </div>
+    <div class="row" style="padding:5px;">
+      <div class="col-sm-4 col-md-8">
+         {userSearchControl}
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <div style="float:right">
+          <button onclick="GeneratePdfFJQ()" id="pdfBtn" name="pdfBtn" data-toggle="tooltip" data-placement="top" title="Exportar datos a Pdf" type="button" class="btn btn-primary btn-export"><span class="glyphicon glyphicon-list-alt"></span></button>
+          <button onclick="GenerateExcelFJQ()" id="excelBtn" name="excelBtn" data-toggle="tooltip" data-placement="top" title="Exportar datos a Excel" type="button" class="btn btn-primary btn-export"><span class="glyphicon glyphicon-list-alt"></span></button>
+          <button onclick="GeneratePrintFJQ()" id="printBtn" name="printBtn" data-toggle="tooltip" data-placement="top" title="Imprimir" type="button" class="btn btn-primary btn-export"><span class="glyphicon glyphicon-print"></span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Lista de Usuarios:</h3>
+    </div>
+    <div id="userTblConten" class="table-responsive"> </div>
+  </div>
+  <div class="clearfix visible-sm-block"></div>
+</div>
+<br/>
+<script>
+   function formValidacionUpdate() {
+          var validacion = true;
+          validacion = validarCampoTexto("optionInputForm", "optionInputFormError", "texto", false, validacion) && validacion;
+          validacion = validarCampoTexto("idDataInputForm", "idDataInputFormError", "texto", false, validacion) && validacion;
+          validacion = validarCampoTexto("userNamesCtx", "userNamesCtxError", "texto", true, validacion) && validacion;
+          validacion = validarCampoTexto("userLastNamesCtx", "userLastNamesCtxError", "texto", true, validacion) && validacion;
+          validacion = validarCampoTexto("userEmailCtx", "userEmailCtxError", "correo", true, validacion) && validacion;
+          validacion = validarLista("userDocumentTypeLst", "userDocumentTypeLstError", true, "", validacion) && validacion;
+          validacion = validarCampoTexto("userDocumentNumberCtx", "userDocumentNumberCtxError", "entero", true, validacion) && validacion;
+          validacion = validarCampoTexto("userCellNumberCtx", "userCellNumberCtxError", "entero", true, validacion) && validacion;
+          validacion = validarCampoTexto("userTelePhoneNumberCtx", "userTelePhoneNumberCtxError", "entero", true, validacion) && validacion;
+          validacion = validarLista("userRolLst", "userRolLstError", true, "", validacion) && validacion;
+          return validacion;
+      }
+      function updateFormSubmit(boton) {
+          if (formValidacionUpdate()) {
+              boton.disabled = 'disabled';
+              boton.onclick = '';
+              document.form.submit();
+          }
+      }
+</script>
+{jquery}

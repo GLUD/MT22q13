@@ -1,0 +1,49 @@
+<div class="col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6" style="padding-left:5px; padding-right:5px;"> <br>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Cambiar Datos:</h3>
+        </div>
+        <div class="panel-body">
+          <div style="text-align: center; font-size: 6em;">
+            <span class="glyphicon glyphicon-lock"></span>
+          </div>
+            {form}
+            {optionInputForm}{optionInputFormError}
+            {idDataInputForm}{idDataInputFormError}
+            <div class="form-group">
+                <label>Cambiar Usuario:</label>
+                {accessUserNameCtx}<span>{accessUserNameCtxError}</span></div>
+            <div class="form-group">
+                <label>Cambiar Contraseña:</label>
+                {accessPassCtx}<span>{accessPassCtxError}</span></div>
+            <div class="form-group">
+                <label>Cofirmar Contraseña:</label>
+                {accessConfPassCtx}<span>{accessConfPassCtxError}</span></div>
+            <div class="form-actions">
+                <input id="modificarBtn" name="modificarBtn" class="btn btn-warning" type="button" value="Cambiar"  onClick="SetValueToInputText('optionInputForm', 4);
+                updateFormSubmit(this)">
+            </div>
+            {formCierre}
+        </div>
+    </div>
+</div>
+<script>
+
+    function formValidacionUpdate() {
+        var validacion = true;
+        validacion = validarCampoTexto("accessUserNameCtx", "accessUserNameCtxError", "texto", true, validacion) && validacion;
+        validacion = validarCampoTexto("accessPassCtx", "accessPassCtxError", "texto", true, validacion) && validacion;
+        validacion = validarCampoTexto("accessConfPassCtx", "accessConfPassCtxError", "texto", true, validacion) && validacion;
+        return validacion;
+    }
+
+    function formSubmit(boton) {
+        if (formValidacionUpdate()) {
+            boton.disabled = 'disabled';
+            boton.onclick = '';
+            document.form.submit();
+        }
+    }
+</script>
+
+{jquery}
